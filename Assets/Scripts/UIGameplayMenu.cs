@@ -13,19 +13,15 @@ public enum SliderEff
 }
 
 public class UIGameplayMenu : MonoBehaviour
-{   
-    
+{
     [SerializeField] private GameObject _content;
-    [Space]
-    [SerializeField] private Slider _leftSlider;
+    [Space] [SerializeField] private Slider _leftSlider;
     [SerializeField] private Slider _rightSlider;
     [SerializeField] private Button _simulationButton;
-    
-    [Space]
-    [SerializeField] private TextMeshProUGUI _collisionText;
-    
-    [Space]
-    [SerializeField] private Toggle _debugViewToggle;
+
+    [Space] [SerializeField] private TextMeshProUGUI _collisionText;
+
+    [Space] [SerializeField] private Toggle _debugViewToggle;
 
     private void Awake()
     {
@@ -41,7 +37,7 @@ public class UIGameplayMenu : MonoBehaviour
 
         _leftSlider.minValue = anglesLeftSword.x;
         _leftSlider.maxValue = anglesLeftSword.y;
-        
+
         _rightSlider.minValue = anglesRightSword.x;
         _rightSlider.maxValue = anglesRightSword.y;
     }
@@ -89,7 +85,7 @@ public class UIGameplayMenu : MonoBehaviour
         MessagingSystem.SendMsg(MessagingSystemMessages.SimulationStarted);
         _content.gameObject.SetActive(false);
     }
-    
+
     private void OnSimulationFinished(MessageData obj)
     {
         _content.SetActive(true);
@@ -99,13 +95,13 @@ public class UIGameplayMenu : MonoBehaviour
     {
         JSONObject data = new JSONObject();
         data.Add("DebugView", _debugViewToggle.isOn);
-        
+
 
         MessageData messageData = new MessageData();
         messageData.data = data;
-        
+
         MessagingSystem.SendMsg(MessagingSystemMessages.ToggleDebugView, messageData);
-        
+
         _simulationButton.gameObject.SetActive(!_debugViewToggle.isOn);
     }
 }

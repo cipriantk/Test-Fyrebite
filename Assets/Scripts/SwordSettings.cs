@@ -47,7 +47,7 @@ public class SwordSettings : ScriptableObject
     {
         _minAngleLeftSword = Mathf.Clamp(_minAngleLeftSword, -80, -20);
         _maxAngleLeftSword = Mathf.Clamp(_maxAngleLeftSword, 20, 80);
-        
+
         _minAngleRightSword = Mathf.Clamp(_minAngleRightSword, -80, -20);
         _maxAngleRightSword = Mathf.Clamp(_maxAngleRightSword, 20, 80);
     }
